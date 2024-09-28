@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package product_service;
+option go_package = "genproto/product_service";
+import "messages_product.proto";
+
+
+service Product_service {
+    rpc CreateAuth (AuthorUpdateReq) returns (Author);
+    rpc GetAuth(GetByIdReq)returns(Author);
+    rpc GetAuths(GetListReq)returns(AuthorGetListResp);
+    rpc UpdateAuth(AuthorUpdateReq)returns (Author);
+    rpc DeleteAuth(DeleteReq)returns(Empty);
+
+
+    rpc CreateCategory (CategoryCreateReq) returns (Category);
+    rpc GetCategory(GetByIdReq)returns(Category);
+    rpc GetCategories(GetListReq)returns(CategoryGetListResp);
+    rpc UpdateCategory(CategoryUpdateReq)returns (Category);
+    rpc DeleteCategory(DeleteReq)returns(Empty);
+
+    rpc CreateBook (BookCreateReq) returns (Book);
+    rpc GetBook(GetByIdReq)returns(Book);
+    rpc GetBooks(GetListReq)returns(BookGetListResp);
+    rpc UpdateBook(BookUpdateReq)returns (Book);
+    rpc DeleteBook(DeleteReq)returns(Empty);
+
+    rpc CreateOrder (OrderCreateReq) returns (Order);
+    rpc GetOrder(GetByIdReq)returns(Order);
+    rpc GetOrders(GetListReq)returns(OrderGetListResp);
+    rpc Updateorder(OrderUpdateReq)returns (Order);
+    rpc DeleteOrder(DeleteReq)returns(Empty);
+
+    rpc CreateOrdered_Item (OrderItemCreateReq) returns (OrderItem);
+    rpc GetOrdered_Item(GetByIdReq)returns(OrderItem);
+    rpc GetOrdered_ItemByOrderId(GetByIdReq)returns(OrderItemGetListResp);
+    rpc GetOrdered_Items(GetListReq)returns(OrderItemGetListResp);
+    rpc UpdateOrdered_Item (OrderItemCreateReq) returns (OrderItem);
+    rpc DeleteOrdered_Item(DeleteReq)returns(Empty);
+
+   
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package user_service;
+
+option go_package = "genproto/user_service";
+
+import "messages_user.proto";
+
+service User_service {
+    rpc CreateUser (UserCreateReq) returns (User);
+    rpc GetUser(GetByIdReq)returns(User);
+    rpc GetUsers(GetListReq)returns(UserGetListResp);
+    rpc UpdateUser(UserUpdateReq)returns (User);
+    rpc DeleteUser(DeleteReq)returns(Empty);
+    rpc CheckExists(Common)returns(CommonResp);
+    rpc UserLogin(UserLogIn)returns(Clamis);
+
+}

@@ -1,0 +1,166 @@
+syntax = "proto3";
+
+package product_service;
+
+option go_package = "genproto/product_service";
+
+message Empty {}
+
+message DeleteReq {
+    string id = 1;
+}
+
+message GetByIdReq {
+    string id = 1;
+}
+
+message GetListReq {
+    int32 limit = 1;
+    int32 page = 2;
+}
+
+message Common {
+    string table_name = 1;
+    string column_name = 2;
+    string expvalue = 3;
+
+}
+
+message CommonResp {
+   bool is_exists = 1;
+
+}
+
+
+message Author {
+    string author_id = 1;
+    string author_name = 2;
+    string bio = 3;
+}
+
+message AuthorGetListResp {
+    int32 count = 1;
+    repeated Author author = 2;
+}
+
+message AuthorUpdateReq {
+    string author_name = 1;
+    string bio = 2;
+}
+
+message Category {
+    string category_id = 1;
+    string category_name = 2;
+    string description = 3;     // Fixed spelling from "discription" to "description"
+    string created_at = 4;
+    string updated_at = 5;
+    string deleted_at = 6;
+}
+
+message CategoryCreateReq {
+    string category_name = 1;
+    string description = 2;     // Fixed spelling from "discription" to "description"
+
+}
+
+message CategoryGetListResp {
+    int32 count = 1;
+    repeated Category category = 2;
+}
+
+message CategoryUpdateReq {
+    string category_name = 1;
+    string description = 2;     // Fixed spelling from "discription" to "description"
+    string updated_at = 3;
+}
+
+message Book {
+    string book_id = 1;
+    string title = 2;
+    string author_id = 3;
+    string category_id = 4;
+    double price = 5;
+    int32 stock = 6;
+    string description = 7;
+    string published_date = 8;
+    string created_at = 9;
+    string updated_at = 10;
+    string deleted_at = 11;
+}
+
+message BookCreateReq {
+    string title = 1;
+    string author_id = 2;
+    string category_id = 3;
+    double price = 4;
+    int32 stock = 5;
+    string description = 6;
+    string published_date = 7;
+}
+
+message BookGetListResp {
+    repeated Book book = 1;
+    int32 count = 2;
+}
+
+message BookUpdateReq {
+    string title = 1;
+    string author_id = 2;
+    string category_id = 3;
+    double price = 4;
+    int32 stock = 5;
+    string description = 6;
+    string published_date = 7;
+    string updated_at = 8;
+}
+
+message Order {
+    string order_id = 1;
+    string user_id = 2;
+    double total_amount = 3;
+    string order_status = 4;
+    string created_at = 5;
+    string deleted_at = 6;
+}
+message OrderCreateReq {
+  
+    string user_id = 1;
+    double total_amount = 2;
+    string order_status = 3;
+ 
+}
+
+message OrderUpdateReq {
+    string user_id = 1;
+    double total_amount = 2;
+    string order_status = 3;
+}
+
+message OrderGetListResp {
+    repeated Order order = 1;
+    int32 count = 2;
+}
+
+message OrderItem {
+    string order_item_id = 1;
+    string order_id = 2;
+    string book_id = 3;
+    int32 quantity = 4;
+    double price = 5;
+    string deleted_at = 6;
+    string user_id = 7;
+}
+
+message OrderItemCreateReq {
+    string order_id = 1;
+    string book_id = 2;
+    int32 quantity = 3;
+    double price = 4;
+    string user_id = 5;
+
+}
+
+message OrderItemGetListResp {
+    repeated OrderItem order_item = 1;
+    int32 count = 2;
+}
